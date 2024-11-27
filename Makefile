@@ -1,7 +1,7 @@
 CC = gcc
 CFLAGS = -Wall -g
 TARGET = test
-OBJS = test.o memory_manager.o
+OBJS = test.o memory.o
 
 all: $(TARGET)
 	$(CC) $(CFLAGS) -o $(TARGET) $(OBJS)
@@ -9,11 +9,11 @@ all: $(TARGET)
 $(TARGET): $(OBJS)
 	$(CC) $(CFLAGS) -o $(TARGET) $(OBJS)
 
-test.o: test.c memory_manager.h
+test.o: test.c memory.h
 	$(CC) $(CFLAGS) -c test.c
 
-memory_manager.o: memory_manager.c memory_manager.h
-	$(CC) $(CFLAGS) -c memory_manager.c
+memory.o: memory.c memory.h
+	$(CC) $(CFLAGS) -c memory.c
 
 clean:
 	rm -f *.o $(TARGET)
